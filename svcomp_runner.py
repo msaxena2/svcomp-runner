@@ -71,8 +71,10 @@ def main():
     #run_example("floats-cdfpl")
     #run_example("float-benchs")
     #run_example("ssh-simplified")
-    run_example("locks")
-
+    #run_example("locks")
+    #run_example("loop-acceleration")
+    #run_example("loop-invgen")
+    run_example("loop-lit")
 
 if __name__ == '__main__':
     main()
