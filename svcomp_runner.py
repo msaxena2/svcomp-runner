@@ -59,10 +59,10 @@ def run_example(example_folder):
 
 def main():
     #run_example("array-examples")
-    run_example("bitvector")
-    run_example("bitvector-regression")
-
-
+    #run_example("bitvector")
+    #run_example("bitvector-regression")
+    #run_example("bitvector-loops")
+    run_example("signedintegeroverflow-regression")
 
 if __name__ == '__main__':
     main()
