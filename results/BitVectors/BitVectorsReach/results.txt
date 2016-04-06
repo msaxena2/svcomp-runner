@@ -1,0 +1,261 @@
+Executable standard_two_index_08_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_seq_init_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_running_true-unreach-call.oc
+Executable was well defined 
+
+Executable data_structures_set_multi_proc_trivial_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sorting_selectionsort_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_sentinel_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_sentinel_true-unreach-call.c:10)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_sentinel_true-unreach-call.c:11)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_sentinel_true-unreach-call.c:14)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_sentinel_true-unreach-call.c:18)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_copy9_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_two_index_03_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_copyInitSum_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_strcpy_original_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_strcpy_original_true-unreach-call.c:9)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_strcpy_original_true-unreach-call.c:15)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_init4_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_palindrome_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copyInit_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copyInitSum3_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_init2_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy4_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sanfoundry_43_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable relax_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at is_relaxed_prefix(relax_true-unreach-call.c:107)
+  at main(relax_true-unreach-call.c:133)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(relax_true-unreach-call.c:142)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_strcpy_true-unreach-call_ground.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_strcpy_true-unreach-call_ground.c:10)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_partition_original_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy2_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_partial_init_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_two_index_07_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_init3_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_compareModified_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable data_structures_set_multi_proc_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_vararg_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_two_index_09_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_copy3_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_maxInArray_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_compare_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_strcmp_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy7_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sanfoundry_02_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_init7_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy8_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sanfoundry_24_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(sanfoundry_24_true-unreach-call.c:27)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(sanfoundry_24_true-unreach-call.c:35)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_init9_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sorting_bubblesort_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_vector_difference_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_two_index_02_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_init5_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_minInArray_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copyInitSum2_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_partition_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_password_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable sanfoundry_27_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_init6_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_two_index_01_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_two_index_06_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_two_index_05_true-unreach-call.oc
+Executable was well defined 
+
+Executable standard_copy1_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy6_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_init8_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_find_true-unreach-call_ground.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(standard_find_true-unreach-call_ground.c:9)
+  at <file-scope>(<unknown>)
+
+
+Executable standard_two_index_04_true-unreach-call.oc
+Executable was well defined 
+
+Executable sanfoundry_10_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_copy5_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_init1_true-unreach-call_ground.oc
+Executable was well defined 
+
+Executable standard_reverse_true-unreach-call_ground.oc
+Executable was well defined 
+
+Total Executables - 60
+Undefined - 6

@@ -8,7 +8,7 @@ import re
 def find_undef_behavior(command):
     sys.stdout.write(" ".join(command) + " --- ")
     sys.stdout.flush()
-    error_regex = re.compile('(UB|CV|IMPL|L|USP)\-([A-Z]+[0-9]*)')
+    error_regex = re.compile('(UB|CV|USP)\-([A-Z]+[0-9]*)')
     try:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         process.wait(timeout=1)
@@ -58,8 +58,8 @@ def run_example(example_folder):
 
 
 def main():
-    #run_example("array-examples")
-    #run_example("bitvector")
+    run_example("array-examples")
+    run_example("bitvector")
     run_example("bitvector-regression")
 
 
