@@ -69,7 +69,9 @@ def main():
     #run_example("list-ext-properties")
     #run_example("ldv-memsafety")
     #run_example("floats-cdfpl")
-    run_example("float-benchs")
+    #run_example("float-benchs")
+    #run_example("ssh-simplified")
+    run_example("locks")
 
 
 if __name__ == '__main__':
