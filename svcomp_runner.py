@@ -58,7 +58,7 @@ def run_example(example_folder):
 
 
 def main():
-    run_example("array-examples")
+    #run_example("array-examples")
     run_example("bitvector")
     run_example("bitvector-regression")
 
