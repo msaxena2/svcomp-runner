@@ -37,8 +37,8 @@ def log_result(file, executable, result, output):
     file.write("\n")
 
 
-def run_array_example():
-    os.chdir(os.path.join(location, "bin", "array-examples"))
+def run_example(example_folder):
+    os.chdir(os.path.join(location, "bin", example_folder))
     print("In Directory - " + os.getcwd())
     output_file = open("results.txt", "w+")
     correct_count = 0
@@ -58,7 +58,9 @@ def run_array_example():
 
 
 def main():
-    run_array_example()
+    #run_example("array-examples")
+    #run_example("bitvector")
+    run_example("bitvector-regression")
 
 
 
