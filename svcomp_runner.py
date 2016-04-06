@@ -62,7 +62,15 @@ def main():
     #run_example("bitvector")
     #run_example("bitvector-regression")
     #run_example("bitvector-loops")
-    run_example("signedintegeroverflow-regression")
+    #run_example("signedintegeroverflow-regression")
+    #run_example("list-properties")
+    #run_example("ldv-regression")
+    #run_example("ddv-machzwd")
+    #run_example("list-ext-properties")
+    #run_example("ldv-memsafety")
+    #run_example("floats-cdfpl")
+    run_example("float-benchs")
+
 
 if __name__ == '__main__':
     main()
