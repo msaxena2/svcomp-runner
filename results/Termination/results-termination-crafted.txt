@@ -1,0 +1,215 @@
+Executable Arrays03-ValueRestictsIndex_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Arrays03-ValueRestictsIndex_true-termination.c:15)
+  at <file-scope>(<unknown>)
+
+
+Executable Nyala-2lex_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Nyala-2lex_true-termination.c:17)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Nyala-2lex_true-termination.c:18)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Nyala-2lex_true-termination.c:20)
+  at <file-scope>(<unknown>)
+
+
+Executable Piecewise_true-termination.oc
+Executable was well defined 
+
+Executable aaron2_true-termination.oc
+Executable was well defined 
+
+Executable Singapore_true-termination.oc
+Executable was well defined 
+
+Executable NestedRecursion_1b_true-termination.oc
+Executable was well defined 
+
+Executable NestedRecursion_1d_true-termination.oc
+Executable was well defined 
+
+Executable Toulouse-BranchesToLoop_true-termination.oc
+Executable was well defined 
+
+Executable easy1_true-termination.oc
+Executable was well defined 
+
+Executable Bangalore_true-termination.oc
+Executable was well defined 
+
+Executable Pure2Phase_true-termination.oc
+Executable was well defined 
+
+Executable Toulouse-MultiBranchesToLoop_true-termination.oc
+Executable was well defined 
+
+Executable Waldkirch_true-termination.oc
+Executable was well defined 
+
+Executable Copenhagen_true-termination.oc
+Executable was well defined 
+
+Executable Benghazi_true-termination.oc
+Executable was well defined 
+
+Executable RecursiveMultiplication_true-termination.oc
+Executable was well defined 
+
+Executable NestedRecursion_2c_true-termination.oc
+Executable was well defined 
+
+Executable Gothenburg_v2_true-termination.oc
+Executable was well defined 
+
+Executable McCarthy91_Recursion_true-termination.oc
+Executable was well defined 
+
+Executable Cairo_true-termination.oc
+Executable was well defined 
+
+Executable Bangalore_v4_true-termination.oc
+Executable was well defined 
+
+Executable 4NestedWith3Variables_true-termination.oc
+Executable was well defined 
+
+Executable Ackermann_true-termination.oc
+Executable was well defined 
+
+Executable LexIndexValue-Pointer_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(LexIndexValue-Pointer_true-termination.c:15)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(LexIndexValue-Pointer_true-termination.c:19)
+  at <file-scope>(<unknown>)
+
+
+Executable Thun_true-termination.oc
+Executable was well defined 
+
+Executable MenloPark_true-termination.oc
+Executable was well defined 
+
+Executable SyntaxSupportPointer01_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(SyntaxSupportPointer01_true-termination.c:12)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(SyntaxSupportPointer01_true-termination.c:13)
+  at <file-scope>(<unknown>)
+
+
+Executable 2Nested_true-termination.oc
+Executable was well defined 
+
+Executable Copenhagen_disj_true-termination.oc
+Executable was well defined 
+
+Executable Lobnya-Boolean-Reordered_true-termination.oc
+Executable was well defined 
+
+Executable Arrays01-EquivalentConstantIndices_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Arrays01-EquivalentConstantIndices_true-termination.c:12)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(Arrays01-EquivalentConstantIndices_true-termination.c:13)
+  at <file-scope>(<unknown>)
+
+
+Executable LexIndexValue-Array_true-termination.oc
+Found Undefined Behavior! 
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(LexIndexValue-Array_true-termination.c:15)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(LexIndexValue-Array_true-termination.c:19)
+  at <file-scope>(<unknown>)
+
+
+Executable easy2_true-termination.oc
+Executable was well defined 
+
+Executable Pure3Phase_true-termination.oc
+Executable was well defined 
+
+Executable WhileFalse_true-termination.oc
+Executable was well defined 
+
+Executable Gothenburg_true-termination.oc
+Executable was well defined 
+
+Executable Mysore_true-termination.oc
+Executable was well defined 
+
+Executable Parallel_true-termination.oc
+Executable was well defined 
+
+Executable McCarthy91_Iteration_true-termination.oc
+Executable was well defined 
+
+Executable NestedRecursion_1c_true-termination.oc
+Executable was well defined 
+
+Executable TelAviv-Amir-Minimum_true-termination.oc
+Executable was well defined 
+
+Executable aaron3_true-termination.oc
+Executable was well defined 
+
+Executable Stockholm_true-termination.oc
+Executable was well defined 
+
+Executable MutualRecursion_1b_true-termination.oc
+Executable was well defined 
+
+Executable Benghazi_nondet_true-termination.oc
+Executable was well defined 
+
+Total Executables - 45
+Undefined - 6

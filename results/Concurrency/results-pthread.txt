@@ -1,0 +1,151 @@
+Executable queue_ok_longer_true-unreach-call.oc
+Executable was well defined 
+
+Executable queue_ok_true-unreach-call.oc
+Found Undefined Behavior! 
+queue is empty
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at init(queue_ok_true-unreach-call.c:31)
+  at main(queue_ok_true-unreach-call.c:138)
+  at <file-scope>(<unknown>)
+Error: UB-CEE2
+Description: Indeterminate value used in an expression.
+Type: Undefined behavior.
+See also: C11 sec. 6.2.4, 6.7.9, 6.8, J.2:1 item 11
+  at main(queue_ok_true-unreach-call.c:138)
+  at <file-scope>(<unknown>)
+Fatal error: exception Not_found
+
+
+Executable indexer_true-unreach-call.oc
+Executable was well defined 
+
+Executable fib_bench_true-unreach-call.oc
+Executable was well defined 
+
+Executable bigshot_s2_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread1(bigshot_s2_true-unreach-call.c:13)
+  at <file-scope>(<unknown>)
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread2(bigshot_s2_true-unreach-call.c:18)
+  at <file-scope>(<unknown>)
+
+
+Executable bigshot_s_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread1(bigshot_s_true-unreach-call.c:13)
+  at <file-scope>(<unknown>)
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread2(bigshot_s_true-unreach-call.c:18)
+  at <file-scope>(<unknown>)
+
+
+Executable fib_bench_longer_true-unreach-call.cil.oc
+Found Undefined Behavior! 
+Execution failed (configuration dumped)
+Error: UB-EFNC1
+Description: Attempt to call the function pthread_create through a pointer with incompatible type.
+Type: Undefined behavior.
+See also: C11 sec. 6.5.2.2:9, J.2:1 item 41
+  at main(fib_bench_longer_true-unreach-call.cil.c:92)
+  at <file-scope>(<unknown>)
+
+
+Executable stack_longest_true-unreach-call.oc
+Executable was well defined 
+
+Executable fib_bench_true-unreach-call.cil.oc
+Found Undefined Behavior! 
+Execution failed (configuration dumped)
+Error: UB-EFNC1
+Description: Attempt to call the function pthread_create through a pointer with incompatible type.
+Type: Undefined behavior.
+See also: C11 sec. 6.5.2.2:9, J.2:1 item 41
+  at main(fib_bench_true-unreach-call.cil.c:92)
+  at <file-scope>(<unknown>)
+
+
+Executable queue_ok_true-unreach-call.cil.oc
+Found Undefined Behavior! 
+Execution failed (configuration dumped)
+Error: UB-CCV7
+Description: Conversion from pointer to integer of a value possibly unrepresentable in the integer type.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.3:6, J.2:1 item 24
+  at init(queue_ok_true-unreach-call.cil.c:69)
+  at main(queue_ok_true-unreach-call.cil.c:384)
+  at <file-scope>(<unknown>)
+
+
+Executable sync01_true-unreach-call.oc
+Executable was well defined 
+
+Executable queue_ok_longest_true-unreach-call.oc
+Executable was well defined 
+
+Executable singleton_with-uninit-problems-true.oc
+Executable was well defined 
+
+Executable stack_longer_true-unreach-call.oc
+Executable was well defined 
+
+Executable fib_bench_longer_true-unreach-call.oc
+Executable was well defined 
+
+Executable stack_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at t1(stack_true-unreach-call.c:79)
+  at <file-scope>(<unknown>)
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at t2(stack_true-unreach-call.c:93)
+  at <file-scope>(<unknown>)
+Fatal error: exception Not_found
+
+
+Executable fib_bench_longest_true-unreach-call.oc
+Executable was well defined 
+
+Executable stateful01_true-unreach-call.oc
+Found Undefined Behavior! 
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread1(stateful01_true-unreach-call.c:16)
+  at <file-scope>(<unknown>)
+Error: UB-CCV5
+Description: Casting empty value to type other than void.
+Type: Undefined behavior.
+See also: C11 sec. 6.3.2.2:1, J.2:1 item 23
+  at thread2(stateful01_true-unreach-call.c:28)
+  at <file-scope>(<unknown>)
+Fatal error: exception Not_found
+
+
+Total Executables - 18
+Undefined - 8

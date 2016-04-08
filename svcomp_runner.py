@@ -28,7 +28,7 @@ location = sys.argv[1]
 def log_result(file, executable, result, output):
     file.write("Executable " + executable + "\n")
     if result:
-        sys.stdout.write("Undefined!\n")
+        sys.stdout.write("UNDEFINED!\n")
         file.write("Found Undefined Behavior! \n")
         file.write(output + "\n")
     else:
@@ -74,7 +74,15 @@ def main():
     #run_example("locks")
     #run_example("loop-acceleration")
     #run_example("loop-invgen")
-    run_example("loop-lit")
+    #run_example("loop-lit")
+    #run_example("systemc")
+    #run_example("termination-crafted")
+    #run_example("termination-numeric")
+    #run_example("termination-restricted-15")
+    #run_example("pthread")
+    #run_example("pthread-ext")
+    #run_example("pthread-wmm")
+    run_example("pthread-lit")
 
 if __name__ == '__main__':
     main()
