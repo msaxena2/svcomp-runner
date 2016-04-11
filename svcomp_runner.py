@@ -39,6 +39,8 @@ def run_command(command, timeout):
         return check_result(output)
     except subprocess.TimeoutExpired:
         process.kill()
+        if command[0] == "kcc":
+            return False, "Timeout"
         return False, ""
 
 
@@ -61,10 +63,18 @@ def run_example(example_folder):
                 tests_run += 1
                 # compile the file
                 result, output = run_command(
-                        ["kcc", "-include", includes_location, file, implementation_location, "-o", executable_name], 10)
+                        ["kcc", "-Wno-implementation-defined", "-Wno-unspecified", "-include", includes_location, file, implementation_location, "-o", executable_name], 10)
+
+                if output == "Timeout":
+                    sys.stdout.write("TIMEOUT!\n")
+                    sys.stdout.flush()
+                    continue
+
                 if not result:
                     sys.stdout.write("OK!\n")
                     sys.stdout.flush()
+
+
 
             else:
                 print "[Cache] ",
