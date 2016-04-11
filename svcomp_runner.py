@@ -52,40 +52,47 @@ def run_example(example_folder):
     output_file = open(os.path.join(log_location, example_folder + "-results.txt"), "w+")
     for file in os.listdir(os.getcwd()):
         if "true" in file and file.endswith(".c"):
-            sys.stdout.write("---> Compiling File " + file + " -- ")
-            sys.stdout.flush()
+            result = False
             tests_run += 1
-            # compile the file
             executable_name = file.split(".c")[0] + ".out"
-            result, output = run_command(
-                    ["kcc", "-include", includes_location, file, implementation_location, "-o", executable_name], 10)
+            if not os.path.exists(executable_name):
+                sys.stdout.write("---> Building " + file + " -- ")
+                sys.stdout.flush()
+                tests_run += 1
+                # compile the file
+                result, output = run_command(
+                        ["kcc", "-include", includes_location, file, implementation_location, "-o", executable_name], 10)
+                if not result:
+                    sys.stdout.write("OK!\n")
+                    sys.stdout.flush()
+
+            else:
+                print "[Cache] ",
+                result = False
             if result:
                 log_result(output_file, file, result, output)
                 undefined += 1
                 continue
             else:
-                sys.stdout.write("OK!\n")
-                sys.stdout.flush()
                 # run the executable
-                sys.stdout.write("--> Running " + executable_name + " -- ")
+                sys.stdout.write("---> " + executable_name + " -- ")
                 sys.stdout.flush()
-                result, output = run_command(["./" + executable_name], 2)
+                result, output = run_command(["./" + executable_name], 1)
                 log_result(output_file, file, result, output)
                 if result:
                     undefined += 1
-            os.remove(executable_name)
     output_file.write("Total Executables - " + str(tests_run) + "\n")
     output_file.write("Undefined - " + str(undefined) + "\n")
     output_file.close()
     total_tests += tests_run
-    undefined += undefined
+    total_undefined += undefined
 
 
 def main():
     test_file = open("tests.txt", 'r').read()
     map(lambda y: run_example(y), filter(lambda x: x.split(), test_file.split("\n")))
     print("Total Undefined - " + str(total_undefined))
-    print("Total Run - " + str())
+    print("Total Run - " + str(total_tests))
 
 
 if __name__ == '__main__':
