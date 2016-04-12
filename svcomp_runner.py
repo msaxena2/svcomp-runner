@@ -3,69 +3,134 @@ import os
 import subprocess32 as subprocess
 import re
 
-
-
-def find_undef_behavior(command):
-    sys.stdout.write(" ".join(command) + " --- ")
-    sys.stdout.flush()
-    error_regex = re.compile('(UB|CV|USP)\-([A-Z]+[0-9]*)')
-    try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        process.wait(timeout=1)
-        output = process.stderr.read()
-        if re.search(error_regex, output):
-            return True, output
-        return False, ""
-    except subprocess.TimeoutExpired:
-        return False, ""
-    finally:
-        process.kill()
-
-
+total_tests = 0
+total_undefined = 0
 location = sys.argv[1]
 log_location = sys.argv[2]
-tests_run = 0
-undefined = 0
+includes_location = os.path.join(location, "decls.h")
+implementation_location = os.path.join(location, "implementations.o")
+implementation2_location = os.path.join(location, "implementations2.o")
+
+def check_result(output):
+    error_regex = re.compile('(UB|CV|USP)\-([A-Z]+[0-9]*)')
+    if re.search(error_regex, output):
+        return True, output
+    return False, ""
+
 
 def log_result(file, executable, result, output):
-    file.write("Executable " + executable + "\n")
+    file.write("File " + executable + "\n")
     if result:
         sys.stdout.write("UNDEFINED!\n")
         file.write("Found Undefined Behavior! \n")
         file.write(output + "\n")
     else:
         sys.stdout.write("OK!\n")
-        file.write("Executable was well defined \n")
+        file.write("File was well defined \n")
     file.write("\n")
 
 
+def run_command(command, timeout):
+    try:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.wait(timeout=timeout)
+        output = process.stderr.read()
+        process.kill()
+        return check_result(output)
+    except subprocess.TimeoutExpired:
+        process.kill()
+        if command[0] == "kcc":
+            return False, "Timeout"
+        return False, ""
+
+
 def run_example(example_folder):
-    global tests_run
-    global undefined
-    os.chdir(os.path.join(location, "bin", example_folder))
+    tests_run = 0
+    undefined = 0
+    global total_tests
+    global total_undefined
+    os.chdir(os.path.join(location, example_folder))
     print("In Directory - " + os.getcwd())
-    output_file = open(os.path.join(log_location, example_folder + "-results.txt", "w+"))
-    correct_count = 0
-    undef_count = 0
+    output_file = open(os.path.join(log_location, example_folder + "-results.txt"), "w+")
     for file in os.listdir(os.getcwd()):
-        if "true" in file and file.endswith(".oc"):
-            correct_count += 1
-            tests_run = tests_run + 1
-            undefined = undefined + 1
-            result, output = find_undef_behavior(["./" + file])
-            log_result(output_file, file, result, output)
+        if "true" in file and file.endswith(".c"):
+            tests_run += 1
+            simple_name = file.split(".c")[0]
+            executable_name = simple_name + ".out"
+            object_name = simple_name + ".o"
+            if not os.path.exists(executable_name):
+                sys.stdout.write("[Compile] " + file + " -- ")
+                sys.stdout.flush()
+                # compile the file
+                result, output = run_command(
+                        ["kcc", "-c", "-Wno-implementation-defined", "-Wno-unspecified", "-include", includes_location,
+                         file, "-o", object_name], 10)
+
+                if output == "Timeout":
+                    sys.stdout.write("TIMEOUT!\n")
+                    sys.stdout.flush()
+                    continue
+
+                if not result:
+                    sys.stdout.write("OK!\n")
+                    sys.stdout.flush()
+
+                    sys.stdout.write("[Link] " + object_name + " -- ")
+                    sys.stdout.flush()
+                    if "cil" in file:
+                        command = ["kcc", object_name, implementation2_location, "-o", executable_name]
+                    else:
+                        command = ["kcc", object_name, implementation_location, "-o", executable_name]
+
+                    result, output = run_command(command,
+                                                 10)
+
+                if output == "Timeout":
+                    sys.stdout.write("TIMEOUT!\n")
+                    sys.stdout.flush()
+                    continue
+
+                if not result:
+                    sys.stdout.write("OK!\n")
+                    sys.stdout.flush()
+
+            else:
+                print "[Cache] ",
+                result = False
             if result:
-                undef_count += 1
-    output_file.write("Total Executables - " + str(correct_count) + "\n")
-    output_file.write("Undefined - " + str(undef_count) + "\n")
+                log_result(output_file, file, result, output)
+                undefined += 1
+                continue
+            else:
+                # run the executable
+                sys.stdout.write("[Run] " + executable_name + " -- ")
+                sys.stdout.flush()
+                result, output = run_command(["./" + executable_name], 1)
+                log_result(output_file, file, result, output)
+                if result:
+                    undefined += 1
+            os.remove(executable_name)
+
+    output_file.write("Total Executables - " + str(tests_run) + "\n")
+    output_file.write("Undefined - " + str(undefined) + "\n")
     output_file.close()
+    total_tests += tests_run
+    total_undefined += undefined
 
 
+def init_implementations():
+    os.chdir(location)
+    subprocess.check_call(["kcc", "-c", "implementations.c", "-o", "implementations.o"])
+    subprocess.check_call(["kcc", "-c", "implementations2.c", "-o", "implementations2.o"])
 
 
 def main():
-    test_file = open("tests.txt", 'r')
-    map(lambda y: run_example(y), filter(lambda x : x.split(), test_file.split("\n")))
+    test_file = open("tests.txt", 'r').read()
+    init_implementations()
+    map(lambda y: run_example(y), filter(lambda x: x.split(), test_file.split("\n")))
+    print("Total Undefined - " + str(total_undefined))
+    print("Total Run - " + str(total_tests))
+
 
 if __name__ == '__main__':
     main()
