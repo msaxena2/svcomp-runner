@@ -8,8 +8,8 @@ total_undefined = 0
 location = sys.argv[1]
 log_location = sys.argv[2]
 includes_location = os.path.join(location, "decls.h")
-implementation_location = os.path.join(location, "implementations.c")
-
+implementation_location = os.path.join(location, "implementations.o")
+implementation2_location = os.path.join(location, "implementations2.o")
 
 def check_result(output):
     error_regex = re.compile('(UB|CV|USP)\-([A-Z]+[0-9]*)')
@@ -54,16 +54,17 @@ def run_example(example_folder):
     output_file = open(os.path.join(log_location, example_folder + "-results.txt"), "w+")
     for file in os.listdir(os.getcwd()):
         if "true" in file and file.endswith(".c"):
-            result = False
             tests_run += 1
-            executable_name = file.split(".c")[0] + ".out"
+            simple_name = file.split(".c")[0]
+            executable_name = simple_name + ".out"
+            object_name = simple_name + ".o"
             if not os.path.exists(executable_name):
-                sys.stdout.write("---> Building " + file + " -- ")
+                sys.stdout.write("[Compile] " + file + " -- ")
                 sys.stdout.flush()
-                tests_run += 1
                 # compile the file
                 result, output = run_command(
-                        ["kcc", "-Wno-implementation-defined", "-Wno-unspecified", "-include", includes_location, file, implementation_location, "-o", executable_name], 10)
+                        ["kcc", "-c", "-Wno-implementation-defined", "-Wno-unspecified", "-include", includes_location,
+                         file, "-o", object_name], 10)
 
                 if output == "Timeout":
                     sys.stdout.write("TIMEOUT!\n")
@@ -74,7 +75,24 @@ def run_example(example_folder):
                     sys.stdout.write("OK!\n")
                     sys.stdout.flush()
 
+                    sys.stdout.write("[Link] " + object_name + " -- ")
+                    sys.stdout.flush()
+                    if "cil" in file:
+                        command = ["kcc", object_name, implementation2_location, "-o", executable_name]
+                    else:
+                        command = ["kcc", object_name, implementation_location, "-o", executable_name]
 
+                    result, output = run_command(command,
+                                                 10)
+
+                if output == "Timeout":
+                    sys.stdout.write("TIMEOUT!\n")
+                    sys.stdout.flush()
+                    continue
+
+                if not result:
+                    sys.stdout.write("OK!\n")
+                    sys.stdout.flush()
 
             else:
                 print "[Cache] ",
@@ -85,12 +103,14 @@ def run_example(example_folder):
                 continue
             else:
                 # run the executable
-                sys.stdout.write("---> " + executable_name + " -- ")
+                sys.stdout.write("[Run] " + executable_name + " -- ")
                 sys.stdout.flush()
                 result, output = run_command(["./" + executable_name], 1)
                 log_result(output_file, file, result, output)
                 if result:
                     undefined += 1
+            os.remove(executable_name)
+
     output_file.write("Total Executables - " + str(tests_run) + "\n")
     output_file.write("Undefined - " + str(undefined) + "\n")
     output_file.close()
@@ -98,8 +118,15 @@ def run_example(example_folder):
     total_undefined += undefined
 
 
+def init_implementations():
+    os.chdir(location)
+    subprocess.check_call(["kcc", "-c", "implementations.c", "-o", "implementations.o"])
+    subprocess.check_call(["kcc", "-c", "implementations2.c", "-o", "implementations2.o"])
+
+
 def main():
     test_file = open("tests.txt", 'r').read()
+    init_implementations()
     map(lambda y: run_example(y), filter(lambda x: x.split(), test_file.split("\n")))
     print("Total Undefined - " + str(total_undefined))
     print("Total Run - " + str(total_tests))
