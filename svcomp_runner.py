@@ -32,6 +32,7 @@ def log_result(file, executable, result, output):
 
 
 def run_command(command, timeout):
+    process = None
     try:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setsid)
         process.wait(timeout=timeout)
@@ -43,7 +44,8 @@ def run_command(command, timeout):
         return False, ""
     finally:
         try:
-            os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+            if process is not None:
+                os.killpg(os.getpgid(process.pid), signal.SIGTERM)
         except OSError:
             pass
 
