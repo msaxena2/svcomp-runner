@@ -55,7 +55,7 @@ def run_example(example_folder):
     for file in os.listdir(os.getcwd()):
         if "true" in file and file.endswith(".c"):
             tests_run += 1
-            simple_name = file.split(".c")[0]
+            simple_name = file.rsplit(".", 1)[0]
             executable_name = simple_name + ".out"
             object_name = simple_name + ".o"
             if not os.path.exists(executable_name):
