@@ -1,5 +1,6 @@
 import sys
 import os
+import signal
 import subprocess32 as subprocess
 import re
 
@@ -32,7 +33,7 @@ def log_result(file, executable, result, output):
 
 def run_command(command, timeout):
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setsid)
         process.wait(timeout=timeout)
         output = process.stderr.read()
         return check_result(output)
@@ -41,7 +42,11 @@ def run_command(command, timeout):
             return False, "Timeout"
         return False, ""
     finally:
-        process.kill()
+        try:
+            os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+            print("Killed Group")
+        except OSError:
+            pass
 
 def run_example(example_folder):
     tests_run = 0
