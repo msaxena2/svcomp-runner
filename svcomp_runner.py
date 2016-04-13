@@ -83,7 +83,7 @@ def run_example(example_folder):
                         command = ["kcc", object_name, implementation_location, "-o", executable_name]
 
                     result, output = run_command(command,
-                                                 10)
+                                                 20)
 
                 if output == "Timeout":
                     sys.stdout.write("TIMEOUT!\n")
@@ -109,7 +109,6 @@ def run_example(example_folder):
                 log_result(output_file, file, result, output)
                 if result:
                     undefined += 1
-            os.remove(executable_name)
 
     output_file.write("Total Executables - " + str(tests_run) + "\n")
     output_file.write("Undefined - " + str(undefined) + "\n")
@@ -119,9 +118,12 @@ def run_example(example_folder):
 
 
 def init_implementations():
+    sys.stdout.write("Initializing kcc -- ")
+    sys.stdout.flush
     os.chdir(location)
     subprocess.check_call(["kcc", "-c", "implementations.c", "-o", "implementations.o"])
-    subprocess.check_call(["kcc", "-c", "implementations2.c", "-o", "implementations2.o"])
+    sys.stdout.write("ok\n")
+    sys.stdout.flush()
 
 
 def main():
