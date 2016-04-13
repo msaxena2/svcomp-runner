@@ -44,7 +44,6 @@ def run_command(command, timeout):
     finally:
         try:
             os.killpg(os.getpgid(process.pid), signal.SIGTERM)
-            print("Killed Group")
         except OSError:
             pass
 
