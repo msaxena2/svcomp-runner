@@ -77,11 +77,7 @@ def run_example(example_folder):
 
                     sys.stdout.write("[Link] " + object_name + " -- ")
                     sys.stdout.flush()
-                    if "cil" in file:
-                        command = ["kcc", object_name, implementation2_location, "-o", executable_name]
-                    else:
-                        command = ["kcc", object_name, implementation_location, "-o", executable_name]
-
+                    command = ["kcc", object_name, implementation_location, "-o", executable_name]
                     result, output = run_command(command,
                                                  20)
 
