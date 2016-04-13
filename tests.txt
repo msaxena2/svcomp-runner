@@ -11,7 +11,7 @@ memsafety-ext
 list-ext-properties
 ldv-memsafety
 floats-cdfpl
-floats-benchs
+float-benchs
 floats-cbmc-regression
 ssh-simplified
 locks
