@@ -35,14 +35,13 @@ def run_command(command, timeout):
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         process.wait(timeout=timeout)
         output = process.stderr.read()
-        process.kill()
         return check_result(output)
     except subprocess.TimeoutExpired:
-        process.kill()
         if command[0] == "kcc":
             return False, "Timeout"
         return False, ""
-
+    finally:
+        process.kill()
 
 def run_example(example_folder):
     tests_run = 0
