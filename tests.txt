@@ -5,7 +5,7 @@ bitvector-regression
 signedintegeroverflow-regression
 heap-manipulation
 list-properties
-ldv-regeression
+ldv-regression
 memsafety
 memsafety-ext
 list-ext-properties
@@ -19,11 +19,11 @@ ssh
 eca-rers2012
 loops
 loop-invgen
-loop-accelaration
+loop-acceleration
 loop-new
 loop-lit
 recursive
-recursive-simmple
+recursive-simple
 product-lines
 systemc
 termination-crafted
